@@ -1,0 +1,46 @@
+/*Desenvolva um programa para calcular e comparar a área de dois retângulos A e B, o
+programa deverá dizer qual retângulo possui a maior área ou se eles possuem tamanhos
+iguais. Esse programa deve possuir uma função para calcular a área do retângulo. Dados
+de entrada: tamanho da base e da altura (tipo das variáveis: inteiro, valor em centímetros).*/
+
+#include<stdio.h>
+
+void calculaarea(int *areaA, int *areaB, int base, int base2, int alt, int alt2){
+
+*areaA = base * alt;
+*areaB = base2 * alt2;
+
+}
+
+main(){
+
+int base,alt,base2,alt2,areaA,areaB;
+
+printf("Retangulo A\n\n");
+printf("Base: ");
+scanf("%d",&base);
+
+printf("Altura: ");
+scanf("%d",&alt);
+
+printf("\n\nRetangulo B\n\n");
+printf("Base: ");
+scanf("%d",&base2);
+
+printf("Altura: ");
+scanf("%d",&alt2);
+
+calculaarea(&areaA,&areaB,base,base2,alt,alt2);
+
+printf("\nArea A = %d",areaA);
+printf("\nArea B = %d",areaB);
+
+if(areaA == areaB)
+    printf("\n\nAreas iguais!");
+
+if(areaA > areaB)
+    printf("\n\nArea A maior do que B!");
+
+if(areaA < areaB)
+    printf("\n\nArea B maior do que A!");
+}
