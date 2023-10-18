@@ -45,6 +45,41 @@ main(){
 
 }
 
+void pitagoras()
+{
+    int a,b,c,a2;
+    char s;
+    
+  printf("Deseja achar a, b ou c? ");
+    scanf("%s",&s);
+    if(s == 'a');
+   {
+      printf("Entre com B: ");
+       scanf("%d",&b);
+      printf("Entre com C: ");
+       scanf("%d",&c);
+     b2 = pow(b,2);
+     c2 = pow(c,2);
+     a2 = b2 + c2;
+     a3 = sqrt(a2);
+       printf("A e igual a: %d", a3);
+       
+   }
+    if(s == 'b');
+   {
+      printf("Entre com A: ");
+       scanf("%d",&a);
+      printf("Entre com C: ");
+       scanf("%d",&c);
+     b2 = pow(b,2);
+     c2 = pow(c,2);
+     a2 = b2 + c2;
+     a3 = sqrt(a2);
+       printf("A e igual a: %d", a3);
+       
+   }
+}
+
 void cosseno()
 {
     float ca,h,co;
@@ -61,7 +96,7 @@ void cosseno()
 
 float seno (int angulo, int catetoOposto, int hipotenusa) {
     float valorAngulo = converteAnguloSeno(angulo);
-    /* Quando o cateto oposto tiver um valor inv·lido ele sera o nosso X */
+    /* Quando o cateto oposto tiver um valor inv√°lido ele sera o nosso X */
     if (catetoOposto <= 0) {
         return valorAngulo * hipotenusa;
     } else {
