@@ -8,15 +8,18 @@ void solicitaFormula(int *formula);
 
 main(){
     int escolha2;
+    int angulo,catetoOposto,hipotenusa;
 
     do{
 
     int formula, angulo, valorRequerido, valorOposto,escolha;
 
+    printf("\n----------------------------------------------------------------------------------------------------------------\n");
     printf("\n        MENU\n\n");
-    printf("1 - Bhaskara\n2 -Tabela dos Notaveis\n3 - Seno\n4 - Cosseno\n5 - Tangente\n6 - Pitagoras\n7 - Sair\n");
+    printf("1 - Bhaskara\n2 - Tabela dos Notaveis\n3 - Seno\n4 - Cosseno\n5 - Tangente\n6 - Pitagoras\n7 - Sair\n\n");
     printf("\nEscolha: ");
     scanf("%d",&escolha);
+    printf("\n----------------------------------------------------------------------------------------------------------------\n\n");
 
     switch(escolha)
     {
@@ -26,11 +29,18 @@ main(){
       case 2: printf("Tabela");
               break;
 
+      case 3: printf("%f",seno(angulo,catetoOposto,hipotenusa));
+      printf("%f",converteAnguloSeno(angulo));
 
-      case 4: cosseno();
+                break;
+
+      case 4:
               break;
 
       case 5: break;
+
+      case 6: pitagoras();
+              break;
 
       case 7: return;
 
@@ -47,14 +57,14 @@ main(){
 
 void pitagoras()
 {
-    int a,b,c,a2;
+    int a,b,c,a2,b2,c2,a3,b3,c3;
     char s;
-    
-  printf("Deseja achar a, b ou c? ");
+
+  printf("\nDeseja achar a, b ou c? ");
     scanf("%s",&s);
     if(s == 'a');
    {
-      printf("Entre com B: ");
+      printf("\nEntre com B: ");
        scanf("%d",&b);
       printf("Entre com C: ");
        scanf("%d",&c);
@@ -62,8 +72,9 @@ void pitagoras()
      c2 = pow(c,2);
      a2 = b2 + c2;
      a3 = sqrt(a2);
-       printf("A e igual a: %d", a3);
-       
+       printf("\nA e igual a: %d", a3);
+       return;
+
    }
     if(s == 'b');
    {
@@ -71,47 +82,72 @@ void pitagoras()
        scanf("%d",&a);
       printf("Entre com C: ");
        scanf("%d",&c);
-     b2 = pow(b,2);
+     a2 = pow(a,2);
      c2 = pow(c,2);
-     a2 = b2 + c2;
-     a3 = sqrt(a2);
-       printf("A e igual a: %d", a3);
-       
+     b2 = a2 - c2;
+     b3 = sqrt(b2);
+       printf("B e igual a: %d", b3);
+       return;
+
+   }
+   if(s == 'c');
+   {
+      printf("Entre com A: ");
+       scanf("%d",&a);
+      printf("Entre com B: ");
+       scanf("%d",&b);
+     a2 = pow(a,2);
+     b2 = pow(c,2);
+     c2 = a2 - b2;
+     c3 = sqrt(c2);
+       printf("C e igual a: %d", c3);
+       return;
    }
 }
 
-void cosseno()
-{
-    float ca,h,co;
-
-    printf("\nCateto adjacente: ");
-    scanf("%.2f",&ca);
-    printf("\nHipotenusa: ");
-    scanf("%.2f",&h);
-
-    co = ca/h;
-    printf("\nCosseno = %.2f",co);
-}
-
-
 float seno (int angulo, int catetoOposto, int hipotenusa) {
-    float valorAngulo = converteAnguloSeno(angulo);
-    /* Quando o cateto oposto tiver um valor inválido ele sera o nosso X */
-    if (catetoOposto <= 0) {
-        return valorAngulo * hipotenusa;
-    } else {
-        return catetoOposto / valorAngulo;
-    }
+float mult,valorAngulo = converteAnguloSeno(angulo);
+
+
+
+printf("\n entre com o cateto oposto:");
+scanf("%d",&catetoOposto);
+
+printf("\n entre com a hipotenusa: ");
+scanf("%d",&hipotenusa);
+
+
+/* Quando o cateto oposto tiver um valor inválido ele sera o nosso X */
+if (catetoOposto <= 0) {
+
+mult = valorAngulo * hipotenusa;
+return mult;
+} else {
+return catetoOposto / valorAngulo;
+}
 }
 
 float converteAnguloSeno (int angulo) {
-    switch (angulo) {
-        case 30: return 1/2;
-        case 45: return sqrt(2) / 2;
-        case 60: return sqrt(3) / 2;
-        default: return -1;
-    }
+
+printf("\n Qual o valor do seu angulo(30,45,60)?");
+scanf("%d",&angulo);
+switch (angulo) {
+
+case 30:
+return 1/2;
+break;
+
+case 45:
+return  sqrt(2) / 2;
+break;
+
+case 60:
+return sqrt(3) / 2;
+break;
+
 }
+}
+
 
 void bhaskara(){
 
@@ -140,3 +176,4 @@ printf("\nX1 = %.2f",x1);
 printf("\nX2 = %.2f",x2);
 
 }
+
