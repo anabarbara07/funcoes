@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <locale.h>
 
 float seno (int angulo, int catetoOposto, int hipotenusa);
 float converteAnguloSeno (int angulo);
@@ -9,7 +10,7 @@ void solicitaFormula(int *formula);
 main(){
     int escolha2;
     int angulo,catetoOposto,hipotenusa;
-
+setlocale(LC_ALL, "Portuguese");
     do{
 
     int formula, angulo, valorRequerido, valorOposto,escolha;
@@ -26,13 +27,15 @@ main(){
       case 1: bhaskara();
               break;
 
-      case 2: printf("Tabela");
+      case 2: printf("          30°         45°         60°   \n\n");
+              printf(" SEN      1/2       sqrt(2)/2    sqrt(3)/2\n");
+              printf(" COS   sqrt(3)/2    sqrt(2)/2       1/2\n");
+              printf(" TAN   sqrt(3)/3        1         sqrt(3)\n");
               break;
 
       case 3: printf("%f",seno(angulo,catetoOposto,hipotenusa));
-      printf("%f",converteAnguloSeno(angulo));
-
-                break;
+              printf("%f",converteAnguloSeno(angulo));
+              break;
 
       case 4:
               break;
@@ -46,8 +49,8 @@ main(){
 
 
     }
-
-    printf("\n\nDeseja escolher de novo? 1 para sim e 2 para nao: ");
+    printf("\n----------------------------------------------------------------------------------------------------------------\n\n");
+    printf("Deseja escolher de novo? 1 para sim e 2 para nao: ");
     scanf("%d",&escolha2);
 
 
@@ -176,4 +179,3 @@ printf("\nX1 = %.2f",x1);
 printf("\nX2 = %.2f",x2);
 
 }
-
